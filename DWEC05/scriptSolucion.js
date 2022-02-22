@@ -1,13 +1,12 @@
 function validarNombreApellidos() {
   let nombre = document.getElementById("nombre").value;
   let apellidos = document.getElementById("apellidos").value;
-
   let patron = new RegExp(/^[A-Z-a-z]+$/);
   correcto = patron.test(nombre) && patron.test(apellidos);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de nombre y/o apellidos incorrecto.";
-    nombre.focus();
-    apellidos.focus();
+    document.getElementById("nombre").focus();
+    document.getElementById("apellidos").focus();
     return false;
   }
   return true;
@@ -21,7 +20,7 @@ function validarEdad() {
   let edad = document.getElementById("edad").value;
   if (isNaN(edad) || edad < 0 || edad > 105) {
     document.getElementById("errores").innerHTML = "Formato de edad incorrecto.";
-    edad.focus();
+    document.getElementById("edad").focus();
     return false;
   }
   return true;
@@ -33,7 +32,7 @@ function validarNif() {
   correcto = patron.test(nif);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de NIF incorrecto.";
-    nif.focus();
+    document.getElementById("nif").focus();
     return false;
   }
   return true;
@@ -48,7 +47,7 @@ function validarEmail() {
   correcto = patron.test(email);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de email incorrecto.";
-    email.focus();
+    document.getElementById("email").focus();
     return false;
   }
   return true;
@@ -57,7 +56,7 @@ function validarProvincia(){
   let provincia=document.getElementById("provincia").selectedIndex;
   if(provincia==0){
     document.getElementById("errores").innerHTML = "Debe seleccionar una provincia.";
-    provincia.focus();
+    document.getElementById("provincia").focus();
     return false;
   }else {
     return true;
@@ -71,7 +70,7 @@ function validarFecha() {
   correcto = patron.test(fecha);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de fecha incorrecto.";
-    fecha.focus();
+    document.getElementById("fecha").focus();
     return false;
   }
   return true;
@@ -84,7 +83,7 @@ function validarTelefono() {
   correcto = patron.test(telf);
   if (!correcto) {
     document.getElementById("errores").innerHTML ="Formato de teléfono incorrecto.";
-    telf.focus();
+    document.getElementById("telefono").focus();
     return false;
   }
   return true;
@@ -97,7 +96,7 @@ function validarHora() {
   correcto = patron.test(hora);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de hora incorrecto.";
-    hora.focus();
+    document.getElementById("hora").focus();
     return false;
   }
   return true;
@@ -114,9 +113,14 @@ function validar(event) {
   valido = valido && validarFecha();
   valido = valido && validarTelefono();
   valido = valido && validarHora();
-  if (!valido) {
-    event.preventDefault();
-  }
+      if (!valido) {
+        event.preventDefault();
+      }else{
+        if(!confirm("Pulsa aceptar para enviar.")){
+          event.preventDefault();
+        }
+    }
+
 }
 
 function ready() {
@@ -129,3 +133,4 @@ function ready() {
 }
 
 document.addEventListener("DOMContentLoaded", ready);
+
