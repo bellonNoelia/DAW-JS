@@ -28,7 +28,7 @@ function validarEdad() {
 }
 function validarNif() {
   let nif = document.getElementById("nif").value;
-  //Patrón debe de ser 8 números entre 0 y 9 y una letra entre A-Z mayúscula
+  //Patrón debe de ser 8 números entre 0 y 9, un guion y una letra entre A-Z mayúscula
   let patron = new RegExp(/^[0-9]{8}-[A-Z]{1}$/);
   correcto = patron.test(nif);
   if (!correcto) {
@@ -66,7 +66,7 @@ function validarProvincia(){
 
 function validarFecha() {
   let fecha = document.getElementById("fecha").value;
-  //Patrón debe
+  //Patrón debe de ser 
   //^\d{1,2}\/\d{1,2}\/\d{2,4}$
   let patron = new RegExp(/^(0[1-9]|[1-2]d|3[01])-(0[1-9]|1[012])-2(d{4})$/);
   correcto = patron.test(fecha);
@@ -80,7 +80,7 @@ function validarFecha() {
 
 function validarTelefono() {
   let telf = document.getElementById("telefono").value;
-  //Patrón debe de ser 9 números entre 0 y 9 y una letra entre A-Z mayúscula
+  //Patrón debe de ser 9 númertos entre 0 y 9
   let patron = new RegExp(/^[0-9]{9}$/);
   correcto = patron.test(telf);
   if (!correcto) {
