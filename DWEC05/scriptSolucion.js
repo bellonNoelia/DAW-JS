@@ -43,7 +43,7 @@ function validarEmail() {
   /*El patrón del email debe debe empezar por letra o número,puede contener puntos, guiones o guiones bajos, 
     tiene que tener un @ y despues del, otra vez números, letras,puntos y/o guiones y el dominio
     irá tra un punto podrá tener desde 2 hasta 4 letras*/
-  let patron = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.([a-zA-Z]{2,4})+$/);
+  let patron = new RegExp(/^([a-zA-Z0-9])+([a-zA-Z0-9._-])+@([a-zA-Z0-9.-])+(\.([a-zA-Z]{2,4}))$ /);
   correcto = patron.test(email);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de email incorrecto.";
@@ -53,7 +53,7 @@ function validarEmail() {
   return true;
 }
 function validarProvincia(){
-  let provincia=document.getElementById("provincia").selectedIndex;
+  let provincia=document.getElementById("provincia").value;
   if(provincia==0){
     document.getElementById("errores").innerHTML = "Debe seleccionar una provincia.";
     document.getElementById("provincia").focus();
@@ -101,6 +101,10 @@ function validarHora() {
   }
   return true;
 }
+ function crearCookie(nombre,valor){
+   document.cookie="intentos=1";
+
+ }
 
 
 function validar(event) {
