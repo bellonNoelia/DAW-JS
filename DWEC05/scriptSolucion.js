@@ -43,7 +43,7 @@ function validarEmail() {
   /*El patrón del email debe debe empezar por letra o número,puede contener puntos, guiones o guiones bajos, 
     tiene que tener un @ y despues del, otra vez números, letras,puntos y/o guiones y el dominio
     irá tra un punto podrá tener desde 2 hasta 4 letras*/
-  let patron = new RegExp(/^([a-zA-Z0-9])+([a-zA-Z0-9._-])+@([a-zA-Z0-9.-])+(\.([a-zA-Z]{2,4}))$ /);
+  let patron = new RegExp(/^([a-zA-Z0-9])+([a-zA-Z0-9._-])+@([a-zA-Z0-9.-])+(\.([a-zA-Z]{2,4}))$/);
   correcto = patron.test(email);
   if (!correcto) {
     document.getElementById("errores").innerHTML = "Formato de email incorrecto.";
@@ -101,13 +101,30 @@ function validarHora() {
   }
   return true;
 }
- function crearCookie(nombre,valor){
-   document.cookie="intentos=1";
 
+ function setCookie(value){
+   document.cookie="intento="+value;
  }
 
-
+ function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "0";
+}
 function validar(event) {
+  let intentos=parseInt(getCookie("intento"))+1;
+  setCookie(intentos);
+  document.getElementById("intentos").innerHTML="Intento de envíos del formulario: "+intentos;
   let valido = true;
   valido = valido && validarNombreApellidos();
   valido = valido && validarEdad();
@@ -128,6 +145,7 @@ function validar(event) {
 }
 
 function ready() {
+  document.cookie = "intento=; max-age=0";
   let formulario = document.getElementById("formulario");
   let nombre = document.getElementById("nombre");
   let apellidos = document.getElementById("apellidos");
