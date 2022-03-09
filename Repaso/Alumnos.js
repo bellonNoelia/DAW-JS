@@ -51,7 +51,7 @@ function ordenarBurbuja(){
             alumnos[i+1]=temp;
         }
     }
-    for(let i=alumnos.length-1;i<0;i--){
+    for(let i=alumnos.length-1;i>0;i--){
         if(alumnos[i].edad<=alumnos[i-1].edad){
             let temp=alumnos[i];
             alumnos[i]=alumnos[i-1];
