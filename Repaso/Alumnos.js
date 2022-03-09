@@ -71,4 +71,4 @@ function ready(){
     document.getElementById("ord").addEventListener("click",ordenarBurbuja);
 
 }
-document.addEventListener("DOMContentLoad",ready);
+document.addEventListener("DOMContentLoaded",ready);
