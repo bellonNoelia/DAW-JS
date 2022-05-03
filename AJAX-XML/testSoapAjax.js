@@ -18,7 +18,7 @@ function cargada() {
   // console.log(peticion.responseText);
   let doc = peticion.responseXML;
   let box=document.createElement("div");
-  let name=ocumentcreateElement("label");
+  let name=document.createElement("label");
   name.innerHTML= doc.getElementsByTagName("city")[0].getAttribute("name");
   //console.log(doc.getElementsByTagName("city")[0]);
   box.appendChild(name);
