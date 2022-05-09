@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .retrato {
+        display: inline-block;
+        margin: 0 1vw 0 1vw;
+      }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TEST jQuery JSON</title>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script>
+      $().ready(()=>{
+        $.get("https://reqres.in/api/users?page=2",function(data,status){
+          console.log("Data"+data+"\n Estado"+status);
+          console.log(data);
+
+        })
+       
+      })
+    </script>
+  </head>
+  <body>
+    <div id="contenedor"></div>
+    <button id="btn">Enviar</button>
+    
+    
+
+    
+    
+  </body>
+</html>

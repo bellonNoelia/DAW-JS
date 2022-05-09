@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .retrato {
+        display: inline-block;
+        margin: 0 1vw 0 1vw;
+      }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TEST jQuery JSON</title>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <p>Hola mundo</p>
+    <p>Hola mundo 2</p>
+    <p>Hola mundo 3</p>
+    <p>Hola mundo 4</p>
+    <button id="btn">Parar</button>
+    <span style="color: red; display: none">Sorpresa</span>
+    <div class="test">
+      <img
+        src="https://www.trecebits.com/wp-content/uploads/2020/08/Google-frecuencia-6-GHz.jpg"
+      />
+    </div>
+    <div id="test">
+      <img
+        src="https://www.trecebits.com/wp-content/uploads/2020/08/Google-frecuencia-6-GHz.jpg"
+      />
+    </div>
+
+    <div id="datos"></div>
+    <script>
+       /* $("span").fadeIn(3000,function(){
+       $("img").fadeOut(1000);
+      });*/
+       function parpadeo() {
+         $("span").fadeToggle(1000, parpadeo);
+       }
+
+       function animacion() {
+         $("#test img").animate(
+           {
+             width: "2px",
+             height: "2px",
+           },
+           1500,
+           function () {
+             $("#test img").animate({
+               width: "500px",
+               height: "500px",
+             });
+           }
+         );
+       }
+       animacion();
+       parpadeo();
+
+       //document.getElementById("id").addEventListener(TipoEvento,Funcion );
+      /* $("#btn").on("click",()=>{
+         $("span").stop();
+       })*/
+       $("#btn").click(()=>{
+         $("span").stop();
+       }
+       )
+       //DOMContentLoaded
+       //$().ready();
+    </script>
+  </body>
+</html>
