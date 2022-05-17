@@ -70,7 +70,9 @@ class Aula {
     container.style.height = "600px";
     container.style.border = "solid 5px black";
     container.style.margin = "0 auto";
-
+    let datos = document.createElement("p");
+    datos.innerHTML=aula.numero + " "+ aula.capacidad
+    container.appendChild(datos);
       for (let i = 0; i < aula.alumnos.length; i++) {
         let alumno = document.createElement("div");
         alumno.style.width = "180px";
@@ -78,6 +80,9 @@ class Aula {
         alumno.style.border ="solid 5px " + color[Math.floor(Math.random() * 6)];
         alumno.style.display = "inline-block";
         alumno.style.margin = "5px";
+        let datosAl = document.createElement("p");
+        datosAl.innerHTML=aula.alumnos[i].nombre+" "+aula.alumnos[i].apellido;
+        alumno.appendChild(datosAl);
         container.appendChild(alumno);
       }
  
